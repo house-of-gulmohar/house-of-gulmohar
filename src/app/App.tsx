@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { Provider } from 'react-redux';
+import { useRoutes } from 'react-router-dom';
+import { store } from './redux/store';
+import AllPages from './routes/routes';
 
 function App() {
+  const allPages = useRoutes(AllPages());
   return (
-    <div className="App">
-      House Of Gulmohar
-    </div>
+    <Provider store={store}>
+      <div>{allPages}</div>
+    </Provider>
   );
 }
 
