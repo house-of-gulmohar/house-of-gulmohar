@@ -1,0 +1,57 @@
+@import '../../style/colors';
+
+$nav-bar-height: 59px;
+
+.sidebar {
+  position: absolute;
+  top: $nav-bar-height;
+  right: 0;
+  height: calc(100vh - $nav-bar-height);
+  z-index: 999;
+  width: 250px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  background-color: white;
+  right: -250px;
+  transition: all 0.3s ease-in;
+
+  &.active {
+    right: 0;
+    transition: all 0.3s ease-in;
+  }
+
+  &__items {
+    ul {
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        transition: all 0.1s ease-in;
+        cursor: pointer;
+
+        svg {
+          color: $red-main;
+        }
+
+        p {
+          padding-left: 10px;
+          width: 100%;
+        }
+
+        &:hover {
+          background-color: $red-main;
+          color: white;
+          font-weight: 600;
+
+          svg {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

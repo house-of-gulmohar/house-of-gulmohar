@@ -5,9 +5,11 @@ import { HiMenuAlt3 } from 'react-icons/hi';
 import { GiSettingsKnobs } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useSettings } from '../../hooks';
 
 const Navbar = () => {
   const [search, setSearch] = useState('');
+  const { isSidebarOpen, openSidebar, closeSidebar } = useSettings();
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
@@ -50,7 +52,10 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar__hamburger">
+        <div
+          className="navbar__hamburger"
+          onClick={isSidebarOpen ? closeSidebar : openSidebar}
+        >
           <HiMenuAlt3 />
         </div>
       </div>
