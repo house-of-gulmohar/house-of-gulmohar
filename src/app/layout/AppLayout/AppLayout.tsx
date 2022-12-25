@@ -1,9 +1,6 @@
-/* eslint-disable react/function-component-definition */
-import React, { useEffect, useState } from 'react';
-import { matchRoutes, useLocation } from 'react-router-dom';
-// eslint-disable-next-line import/no-cycle
-import AllPages from '../../routes/routes';
+import React, { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
+import Sidebar from '../Sidebar/Sidebar';
 import './AppLayout.scss';
 
 interface AppLayoutProps {
@@ -11,9 +8,11 @@ interface AppLayoutProps {
 }
 
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+  useEffect(() => {}, []);
   return (
     <div className="layout">
       <Navbar />
+      <Sidebar />
       <div className="layout__children">{children}</div>
     </div>
   );

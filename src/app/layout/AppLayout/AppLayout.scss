@@ -1,5 +1,9 @@
-.layout{
-  &__children{
+.layout {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+  
+  &__children {
     padding: 20px 3%;
   }
 }
