@@ -1,6 +1,6 @@
 import { RouteObject } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import NoteFoundPage from '../pages/NoteFoundPage';
+import HomePage from '../views/pages/HomePage';
+import NoteFoundPage from '../views/pages/NoteFoundPage';
 import PagesRoutes from './pagesRoutes';
 
 const AllPages = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
-import IconsPage from '../pages/IconsPage';
+import IconsPage from '../views/pages/IconsPage';
 
 const PagesRoutes = () => {
   const pagesRoutes: RouteObject[] = [
