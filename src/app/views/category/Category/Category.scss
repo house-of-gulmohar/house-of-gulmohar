@@ -1,0 +1,21 @@
+.category {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 100%;
+  transition: all 0.3s ease-in;
+
+  &__products {
+    width: 100%;
+    transition: all 0.3s ease-in;
+  }
+
+  &__info {
+    width: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+
+    &.active {
+      width: 300px;
+    }
+  }
+}

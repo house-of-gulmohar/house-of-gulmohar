@@ -1,5 +1,8 @@
 export const ENDPOINTS = {
   CATEGORY: {
-    GET_ALL: '/categories',
+    MAIN: '/categories',
+  },
+  PRODUCT: {
+    MAIN: '/products',
   },
 };

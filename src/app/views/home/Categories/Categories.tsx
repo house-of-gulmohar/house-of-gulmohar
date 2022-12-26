@@ -1,14 +1,12 @@
-import { url } from 'inspector';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Container from '../../../components/Container/Container';
 import { httpService } from '../../../service/axios';
 import { ENDPOINTS } from '../../../utils/constants';
-import { ICategory } from '../../../utils/types';
+import { ICategoryList } from '../../../utils/types';
 import './Categories.scss';
 
 interface ICategoryProps {
-  category: ICategory;
+  category: ICategoryList;
 }
 
 const Category: React.FC<ICategoryProps> = ({ category }) => {
@@ -42,6 +40,7 @@ const Category: React.FC<ICategoryProps> = ({ category }) => {
       },
       url(${category.image_url})`,
         backgroundSize: 'cover',
+        backgroundPosition: '50% 50%',
       }}
     >
       <div className="categories__category-details">{category.name}</div>
@@ -50,10 +49,10 @@ const Category: React.FC<ICategoryProps> = ({ category }) => {
 };
 
 const Categories = () => {
-  const [categories, setCategories] = useState<ICategory[]>([]);
+  const [categories, setCategories] = useState<ICategoryList[]>([]);
   useEffect(() => {
     httpService
-      .get(ENDPOINTS.CATEGORY.GET_ALL, {
+      .get(ENDPOINTS.CATEGORY.MAIN, {
         params: {
           limit: 4,
         },
@@ -70,7 +69,8 @@ const Categories = () => {
         <h1>Explore Categories</h1>
         <div className="categories__wrapper">
           {categories.map((category) => (
-            <Link to={`/categories/${category.name}`} key={category.id}>
+            // TODO: make as name rather than id when change occurs in api
+            <Link to={`/categories/${category.id}`} key={category.id}>
               <Category category={category} />
             </Link>
           ))}
