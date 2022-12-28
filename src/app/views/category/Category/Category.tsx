@@ -5,29 +5,11 @@ import { ICategory } from '../../../utils/types';
 import './Category.scss';
 
 interface ICategoryProps {
-  name: string;
+  category: ICategory;
 }
 
-const Category: React.FC<ICategoryProps> = ({ name }) => {
-  const [category, setCategory] = useState<ICategory | null>(null);
-  const [isInfoActive, setIsInfoActive] = useState(false);
-  useEffect(() => {
-    httpService
-      .get(`${ENDPOINTS.CATEGORY.MAIN}/${name}`)
-      .then(({ data, status }) => {
-        if (status === 200) {
-          setCategory(data.data);
-        }
-      });
-  }, [name]);
-  return (
-    <div className="category">
-      <div className="category__products">products</div>
-      <div className={`category__info ${isInfoActive && 'active'}`}>
-        {category?.name}
-      </div>
-    </div>
-  );
+const Category: React.FC<ICategoryProps> = ({ category }) => {
+  return <div className="category">{category?.name}</div>;
 };
 
 export default Category;

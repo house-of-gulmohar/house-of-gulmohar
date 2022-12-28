@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="navbar__wrapper">
         <Link className="navbar__logo" to="/">
           <img src="/assets/images/house-of-gulmohar-logo.png" alt="" />
-          <h1>House Of Gulmohar</h1>
+          <h1>Logo</h1>
         </Link>
         <div className="navbar__search">
           <input

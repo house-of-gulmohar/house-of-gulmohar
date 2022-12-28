@@ -51,17 +51,11 @@ const Category: React.FC<ICategoryProps> = ({ category }) => {
 const Categories = () => {
   const [categories, setCategories] = useState<ICategoryList[]>([]);
   useEffect(() => {
-    httpService
-      .get(ENDPOINTS.CATEGORY.MAIN, {
-        params: {
-          limit: 4,
-        },
-      })
-      .then(({ data, status }) => {
-        if (status === 200) {
-          setCategories(data.data);
-        }
-      });
+    httpService.get(ENDPOINTS.CATEGORY.MAIN).then(({ data, status }) => {
+      if (status === 200) {
+        setCategories(data.data);
+      }
+    });
   }, []);
   return (
     <div>
