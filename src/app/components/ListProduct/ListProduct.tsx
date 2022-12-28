@@ -11,6 +11,18 @@ interface IListProduct {
 const ListProduct: React.FC<IListProduct> = ({ product }) => {
   const [hover, setHover] = useState(false);
   const [liked, setLiked] = useState(false);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleLike = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setLiked(!liked);
+  };
+
   return (
     <div
       className="listProduct"
@@ -25,7 +37,7 @@ const ListProduct: React.FC<IListProduct> = ({ product }) => {
             transform: hover ? 'scale(1.02)' : 'scale(1)',
           }}
         />
-        <span className="listProduct__like" onClick={() => setLiked(!liked)}>
+        <span className="listProduct__like" onClick={handleLike}>
           {liked ? <AiFillHeart /> : <AiOutlineHeart />}
         </span>
       </div>
@@ -45,7 +57,9 @@ const ListProduct: React.FC<IListProduct> = ({ product }) => {
             {product.discount}%
           </p>
         </div>
-        <button type="button">Add to Cart</button>
+        <button type="button" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
