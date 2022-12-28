@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { CategoryReducer } from './slice/category/category.slice';
 
 export const store = configureStore({
-  reducer: {},
-  devTools: process.env.NODE_ENV === 'development',
+  reducer: {
+    category: CategoryReducer,
+  },
+  devTools: import.meta.env.MODE === 'development',
 });
 
 export type RootState = ReturnType<typeof store.getState>;
