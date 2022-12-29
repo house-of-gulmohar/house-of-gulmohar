@@ -1,0 +1,182 @@
+@import '../../../style/colors';
+
+$main-image-height: 60vh;
+.productView {
+  &__main {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    min-height: $main-image-height;
+
+    @media screen and (max-width: 750px) {
+      flex-direction: column;
+    }
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    height: $main-image-height;
+    overflow: hidden;
+    margin-bottom: 20px;
+    min-width: 700px;
+    width: 600px;
+    margin-right: 1px;
+
+    img {
+      width: 600px;
+      max-width: 600px;
+      height: $main-image-height;
+      object-fit: contain;
+      object-position: 50%;
+    }
+
+    &-list {
+      min-width: 150px;
+      padding-right: 10px;
+      user-select: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      /* width */
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        cursor: pointer;
+        border-radius: 30px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: $red-main;
+      }
+    }
+
+    &-item {
+      width: 150px !important;
+      height: 150px !important;
+      overflow: hidden;
+      object-fit: cover !important;
+      object-position: 50% !important;
+      cursor: pointer;
+    }
+  }
+
+  &__details {
+    background-color: white;
+    padding: 0px 20px;
+    margin-left: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      max-width: 400px;
+      font-weight: 400;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0px;
+    &-price {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    &-mrp {
+      font-size: 0.8rem;
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    &-discount {
+      color: green;
+      font-weight: 700;
+    }
+  }
+
+  &__description {
+    margin-top: 10px;
+    font-weight: 300;
+    max-height: calc($main-image-height - 60px);
+    overflow-y: scroll;
+    font-size: 0.8rem;
+    line-height: 17px;
+    color: $text-light-1;
+    letter-spacing: 0.015rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__brand {
+    margin: 20px 0px;
+    p {
+      color: $text-light-3;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 0.8rem;
+      text-transform: capitalize;
+    }
+    img {
+      height: 50px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    button {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+
+      svg {
+        font-size: 1.5rem;
+      }
+
+      &:nth-child(1) {
+        background-color: $yellow-main;
+        color: black;
+      }
+
+      &:nth-child(2) {
+        background-color: $red-main;
+        color: white;
+        font-size: 1.03rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
