@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { BiRupee, BiCart } from 'react-icons/bi';
 import { FcFlashOn } from 'react-icons/fc';
+import { Link, useNavigate } from 'react-router-dom';
 import { httpService } from '../../../service/axios';
 import { ENDPOINTS } from '../../../utils/constants';
 import { IProduct } from '../../../utils/types';
@@ -14,6 +15,7 @@ interface IProductViewProps {
 const ProductView: React.FC<IProductViewProps> = ({ productId }) => {
   const [product, setProduct] = useState<IProduct>();
   const [mainImage, setMainImage] = useState(product?.images[0]);
+  const navigate = useNavigate();
   useEffect(() => {
     httpService
       .get(`${ENDPOINTS.PRODUCT.MAIN}/${productId}`)
@@ -61,7 +63,10 @@ const ProductView: React.FC<IProductViewProps> = ({ productId }) => {
               <BiCart />
               Add To Cart
             </button>
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => navigate(`/products/${product?.id}/checkout`)}
+            >
               <FcFlashOn />
               Buy Now
             </button>

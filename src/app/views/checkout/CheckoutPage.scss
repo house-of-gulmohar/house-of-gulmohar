@@ -1,0 +1,40 @@
+@import '../../style/colors';
+.checkoutTab {
+  &__tabs {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    &-tab {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: white;
+      color: $red-main;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-transform: capitalize;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      cursor: pointer;
+      transition: all 0.3s ease-in;
+
+      span {
+        color: white;
+        background-color: $red-main;
+        padding: 5px 10px;
+        border-radius: 50%;
+      }
+
+      &.active {
+        background-color: $red-main;
+        color: white;
+
+        span {
+          color: $red-main;
+          background-color: white;
+        }
+      }
+    }
+  }
+}

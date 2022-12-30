@@ -1,0 +1,54 @@
+$border-radius: 5px;
+.checkoutProduct {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  // padding: 0px 20px 0px 0px;
+  border-radius: $border-radius;
+  display: flex;
+  align-items: flex-start;
+  max-width: 600px;
+
+  &__left {
+    width: 150px;
+    height: 100px;
+    img {
+      border-radius: $border-radius 0px 0px $border-radius;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50%;
+    }
+  }
+
+  &__right {
+    padding: 10px 20px;
+
+    h3 {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0px;
+    &-price {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    &-mrp {
+      font-size: 0.8rem;
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    &-discount {
+      color: green;
+      font-weight: 700;
+    }
+  }
+}

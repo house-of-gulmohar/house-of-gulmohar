@@ -1,0 +1,54 @@
+@import '../../../style/colors';
+
+.confirmProducts {
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 30px;
+  }
+
+  &__products {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-product {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      &--quantity {
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        // padding: 10px 20px;
+        height: inherit;
+
+        span {
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: center;
+          background-color: $red-main;
+          color: white;
+          width: 100%;
+          height: 100%;
+          padding: 5px 14px;
+          cursor: pointer;
+
+          &:nth-child(1) {
+            border-radius: 5px 5px 0px 0px;
+          }
+          &:nth-child(2) {
+            border-radius: 0px 0px 5px 5px;
+          }
+        }
+      }
+    }
+  }
+}
