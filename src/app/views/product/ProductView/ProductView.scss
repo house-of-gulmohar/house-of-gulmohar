@@ -8,7 +8,7 @@ $main-image-height: 60vh;
     background-color: white;
     min-height: $main-image-height;
 
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 1130px) {
       flex-direction: column;
     }
   }
@@ -21,8 +21,18 @@ $main-image-height: 60vh;
     overflow: hidden;
     margin-bottom: 20px;
     min-width: 700px;
-    width: 600px;
+    width: 700px;
     margin-right: 1px;
+
+    @media screen and (max-width: 1130px) {
+      min-width: auto;
+      width: 100vw !important;
+
+      flex-direction: column;
+      margin-top: 0;
+      padding-top: 0;
+      height: auto;
+    }
 
     img {
       width: 600px;
@@ -30,6 +40,13 @@ $main-image-height: 60vh;
       height: $main-image-height;
       object-fit: contain;
       object-position: 50%;
+      margin: 0px auto;
+
+      @media screen and (max-width: 1130px) {
+        min-width: auto;
+        height: auto;
+        width: 100vw !important;
+      }
     }
 
     &-list {
@@ -47,6 +64,7 @@ $main-image-height: 60vh;
       /* width */
       &::-webkit-scrollbar {
         width: 5px;
+        height: 5px;
       }
 
       /* Track */
@@ -65,15 +83,22 @@ $main-image-height: 60vh;
       &::-webkit-scrollbar-thumb:hover {
         background: $red-main;
       }
+
+      @media screen and (max-width: 1130px) {
+        display: flex;
+        overflow-x: scroll;
+        padding: 0;
+      }
     }
 
     &-item {
       width: 150px !important;
       height: 150px !important;
       overflow: hidden;
-      object-fit: cover !important;
+      object-fit: contain !important;
       object-position: 50% !important;
       cursor: pointer;
+      min-width: 100px !important;
     }
   }
 
@@ -84,6 +109,11 @@ $main-image-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media screen and (max-width: 1130px) {
+      align-items: center;
+      justify-content: flex-start;
+    }
 
     h2 {
       max-width: 400px;
@@ -150,6 +180,12 @@ $main-image-height: 60vh;
     display: flex;
     gap: 20px;
     justify-content: center;
+
+    @media screen and (max-width: 1130px) {
+      flex-direction: column;
+      min-width: 300px;
+      max-width: 300px;
+    }
 
     button {
       width: 100%;
